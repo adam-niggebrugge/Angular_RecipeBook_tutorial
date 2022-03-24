@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# Who needs Angular cached files?
+.Angular/*
+
+# No IDE tracking
+.vscode/*
