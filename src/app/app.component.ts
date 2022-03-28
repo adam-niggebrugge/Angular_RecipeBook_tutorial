@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe_book_app';
+  private recipesShown: boolean;
+
+  constructor(){
+    this.recipesShown = true;
+  }
+
+  onPageToggle(e: boolean){
+    this.recipesShown = e;
+  }
+
+  show(){
+    return this.recipesShown;
+  }
 }
