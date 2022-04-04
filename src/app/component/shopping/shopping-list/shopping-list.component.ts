@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Ingredient } from 'src/app/models/ingredients.modal';
+import { Ingredient } from 'src/app/models/ingredients.model';
 
 @Component({
   selector: 'app-shopping-list',
