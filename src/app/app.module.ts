@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+//Import list of self defined directives
+import { DropDownDirective } from './share/dropdown.directive';
+
 //Components used throughout the App
 import { HeaderComponent } from './component/header/header.component';
 
@@ -28,6 +32,7 @@ import { ShoppingListComponent } from './component/shopping/shopping-list/shoppi
     RecipesComponent,
     ShoppingListComponent,
     ShopListEditComponent,
+    DropDownDirective,
   ],
   imports: [
     BrowserModule,
