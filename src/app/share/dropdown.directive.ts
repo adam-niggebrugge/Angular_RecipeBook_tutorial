@@ -1,4 +1,4 @@
-import { Directive, Input, HostListener, OnInit, ElementRef, Renderer2 } from "@angular/core";
+import { Directive, Input, HostListener, OnInit, ElementRef, Renderer2, HostBinding } from "@angular/core";
 
 @Directive({
     selector: "[appDropDown]"
@@ -7,6 +7,7 @@ export class DropDownDirective implements OnInit {
   //Allow for dynamic setting per component
   //These input properties allow for any implementation of directive to bind developer's chosen value
   defaultColor: string;
+  @HostBinding("class.open") isOpen:boolean;
   @Input("textColor") text_color: string;
   @Input() background_color: string;
   @Input() border_color: string;
@@ -14,6 +15,7 @@ export class DropDownDirective implements OnInit {
   constructor(
     private elRef: ElementRef,
     private renderer: Renderer2) { 
+      this.isOpen = false;
       this.defaultColor = "transparent";
       this.text_color = "black";
       this.border_color = "black";
@@ -28,13 +30,8 @@ export class DropDownDirective implements OnInit {
 
   }
 
-  @HostListener('mouseenter') mouseover(eventData: Event){
-    this.renderer.setStyle(this.elRef.nativeElement, "background-color", "blue");
-  }
-
-  @HostListener('mouseleave') mouseleave(eventData: Event){
-    // this.renderer.setStyle(this.elRef.nativeElement, "background-color", "transparent");
-    this.background_color = this.defaultColor;
+  @HostListener('click') toggleOpen(){
+    this.isOpen = !this.isOpen;
   }
 
 }
