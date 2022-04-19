@@ -8,6 +8,9 @@ export class DropDownDirective implements OnInit {
   //These input properties allow for any implementation of directive to bind developer's chosen value
   defaultColor: string;
   @HostBinding("class.open") isOpen:boolean;
+  @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
+    this.isOpen = this.elRef.nativeElement.contains(event.target) ? !this.isOpen : false;
+  }
   @Input("textColor") text_color: string;
   @Input() background_color: string;
   @Input() border_color: string;
@@ -30,8 +33,8 @@ export class DropDownDirective implements OnInit {
 
   }
 
-  @HostListener('click') toggleOpen(){
-    this.isOpen = !this.isOpen;
-  }
+  // @HostListener('click') toggleOpen(){
+  //   this.isOpen = !this.isOpen;
+  // }
 
 }
