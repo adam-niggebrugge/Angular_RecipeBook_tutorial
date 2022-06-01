@@ -20,6 +20,7 @@ import { RecipesComponent } from "./component/recipes/recipes.component"
 //List of the Shopping specific Components
 import { ShopListEditComponent } from "./component/shopping/shopping-list/shop-list-edit/shop-list-edit.component";
 import { ShoppingListComponent } from './component/shopping/shopping-list/shopping-list.component';
+import { ShoppingListService } from './services/shopping-list.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { ShoppingListComponent } from './component/shopping/shopping-list/shoppi
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
