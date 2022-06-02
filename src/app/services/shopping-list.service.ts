@@ -17,4 +17,13 @@ export class ShoppingListService {
         this.ingredients.push(ingredient);
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
+
+    addIngredients(ingredients: Ingredient[]) {
+        // One method, viable, but a lot of emitting would occur with this as each ingredient is added
+        // for (let ingredient of ingredients) {
+        //     this.addIngredient(ingredient)
+        // }
+        this.ingredients.push(...ingredients); //ES6 spread operator converts the array into a list adding each individually
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
 }
